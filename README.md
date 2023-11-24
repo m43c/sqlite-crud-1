@@ -9,7 +9,7 @@ This project is an example of a React Native application using Expo that impleme
 - SQLite
 
 ## Screenshots
-![Screenshot](/path/to/your/image.png)
+![Screenshot](https://github.com/m43c/sqlite-crud/blob/main/assets/screenshot.png?raw=true)
 
 ## Usage and Installation
 
@@ -22,13 +22,13 @@ This project is an example of a React Native application using Expo that impleme
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/m43c/sqlite-crud.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd your-project
+    cd sqlite-crud
     ```
 
 3. Install dependencies:
@@ -40,7 +40,7 @@ This project is an example of a React Native application using Expo that impleme
 4. Run the application:
 
     ```bash
-    expo start
+    npx expo start
     ```
 
 5. Scan the QR code with the Expo Go app on your mobile device or use an emulator to view the application.
