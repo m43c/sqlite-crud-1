@@ -1,4 +1,4 @@
-# SQLite - CRUD
+# SQLite | CRUD
 
 ## Description
 This project is an example of a React Native application using Expo that implements basic CRUD (Create, Read, Update, Delete) operations on an SQLite database. The application manages student information, storing the data in the "students" table of the "StudentDatabase.db" database.
