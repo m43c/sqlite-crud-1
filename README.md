@@ -47,4 +47,3 @@ This project is an example of a React Native application using Expo that impleme
 
 ### Contributions
 If you encounter any issues or have suggestions for improvement, feel free to open an issue or submit a pull request!
-
