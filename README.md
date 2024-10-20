@@ -8,9 +8,6 @@ This project is an example of a React Native application using Expo that impleme
 - Expo
 - SQLite
 
-## Screenshots
-![Screenshot](https://github.com/m43c/sqlite-crud/blob/main/assets/screenshot.png?raw=true)
-
 ## Usage and Installation
 
 ### Prerequisites
