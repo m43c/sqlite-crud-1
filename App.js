@@ -103,6 +103,7 @@ const App = () => {
       tx.executeSql("DELETE FROM students WHERE id = ?;", [id], (_, result) => {
         if (result.rowsAffected > 0) {
           showSuccessfulNotification("Student successfully removed");
+          clearInput();
           readStudents();
         } else {
           showfailedNotification("Student was not eliminated");
@@ -117,24 +118,24 @@ const App = () => {
 
   const renderItem = ({ item }) => (
     <View className="flex flex-row justify-between">
-      <View className="w-full flex flex-row justify-between px-2 py-4">
+      <View className="w-full px-2 py-4">
         <View>
-          <Text>
+          <Text className="font-medium text-center">
             {item.name} {item.lastName}
           </Text>
-          <Text>{item.address}</Text>
-          <Text className="">{item.telephone}</Text>
+          <Text className="font-medium text-center">{item.address}</Text>
+          <Text className="font-medium text-center">{item.telephone}</Text>
         </View>
 
-        <View className="space-y-2">
+        <View className="flex flex-row justify-evenly py-2">
           <TouchableOpacity
             onPress={() => {
               selectStudentForUpdate(item);
             }}
-            className="p-1 rounded bg-green-500"
+            className=""
           >
-            <Text className="font-semibold text-center text-gray-200">
-              Edit
+            <Text className="text-3xl">
+            📝
             </Text>
           </TouchableOpacity>
 
@@ -142,10 +143,10 @@ const App = () => {
             onPress={() => {
               deleteStudent(item.id);
             }}
-            className="p-1 rounded bg-red-500"
+            className=""
           >
-            <Text className="font-semibold text-center text-gray-200">
-              Delete
+            <Text className="text-3xl">
+            🗑️
             </Text>
           </TouchableOpacity>
         </View>
@@ -154,54 +155,65 @@ const App = () => {
   );
 
   return (
-    <View className="flex-1 items-center justify-center py-12 px-4 space-y-3">
+    <View className="flex-1 items-center justify-center py-12 px-4 space-y-3 bg-gray-300">
+      <Text className="text-xl font-bold">Lista de Estudiantes</Text>
+
       <FlatList
         data={students}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderItem}
-        className="w-full border rounded"
+        className="w-full"
       />
 
-      <View className="w-full items-center space-y-3">
-        <View className="flex flex-row justify-between w-full space-x-4">
-          <TextInput
-            placeholder="Name"
-            value={name}
-            onChangeText={(text) => setName(text)}
-            className="w-[48%] py-1 px-2 border"
-          />
-
-          <TextInput
-            placeholder="Last name"
-            value={lastName}
-            onChangeText={(text) => setLastName(text)}
-            className="w-[48%] py-1 px-2 border"
-          />
-        </View>
-
+      <View className="w-[90%] items-center space-y-4">
         <TextInput
-          placeholder="Address"
-          value={address}
-          onChangeText={(text) => setAddress(text)}
-          className="w-full py-1 px-2 border"
+          placeholder="Ingrese el nombre del estudiante"
+          value={name}
+          onChangeText={(text) => setName(text)}
+          className="w-full border-b-2 border-blue-900"
         />
 
         <TextInput
-          placeholder="Telephone"
+          placeholder="Ingrese el apellido del estudiante"
+          value={lastName}
+          onChangeText={(text) => setLastName(text)}
+          className="w-full border-b-2 border-blue-900"
+        />
+
+        <TextInput
+          placeholder="Ingrese la dirección del estudiante"
+          value={address}
+          onChangeText={(text) => setAddress(text)}
+          className="w-full border-b-2 border-blue-900"
+        />
+
+        <TextInput
+          placeholder="Ingrese el teléfono del estudiante"
           value={telephone}
           onChangeText={(text) => setTelephone(text)}
-          className="w-full py-1 px-2 border"
+          className="w-full border-b-2 border-blue-900"
           keyboardType="numeric"
         />
 
-        <TouchableOpacity
-          onPress={selectedStudent ? updateStudent : createStudent}
-          className="w-full"
-        >
-          <Text className="p-3 rounded font-semibold text-sm text-center text-gray-200 bg-blue-500">
-            Add Student
-          </Text>
-        </TouchableOpacity>
+        <View className="w-full flex flex-row justify-between space-x-3">
+          <TouchableOpacity
+            onPress={clearInput}
+            className="w-[48%] py-3"
+          >
+            <Text className="p-3 font-semibold text-sm text-center text-gray-200 bg-rose-800">
+              Cancelar
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={selectedStudent ? updateStudent : createStudent}
+            className="w-[48%] py-3"
+          >
+            <Text className="p-3 font-semibold text-sm text-center text-gray-200 bg-blue-900">
+              Agregar
+            </Text>
+          </TouchableOpacity>
+        </View>
 
         <StatusBar style="auto" />
       </View>
